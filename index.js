@@ -1,16 +1,13 @@
 const http = require('http');
 const {handleReqRes} = require('./helpers/handleReqRes')
+const environment = require('./helpers/environment')
 
 const app = {};
 
-app.config = {
-    "port": 3000,
-}
-
 app.createServer = () => {
     const server = http.createServer(app.handleReqRes);
-    server.listen(app.config.port, () => {
-        console.log(`Server running at http://localhost:${app.config.port}`)
+    server.listen(environment.port, () => {
+        console.log(`Server running at http://localhost:${environment.port}`)
     })
 }
 
